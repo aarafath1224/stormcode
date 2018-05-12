@@ -3,29 +3,32 @@
         <h1> my storm list </h1>
          <ul>
            
-           <li> 
+           <li class="todo-item"> 
                <input type="checkbox"/>
-               <a href="show.html">BlueStorm</a>
+               <a href="/todos/1">BlueStorm</a>
                <span class="estimate">time estimate</span>
               </li> 
-              <li>
+              <li class="todo-item">
                 <input type="checkbox"/>
-                <a href="show.html">MindStorm</a>
+                <a href="/todos/2">MindStorm</a>
                 <span class="estimate">time estimate</span>
               </li>
-              <li>
+              <li class="todo-item">
                 <input type="checkbox"/>
-                <a href="show.html">CodeStorm</a>
+                <a href="/todos/3">CodeStorm</a>
                 <span class="estimate">time estimate</span>
               </li>
         </ul>   
         
-        <div id="new-todo-block">
-        <input type="text" id="new-todo-description" placeholder="More storm names">
-        <input type="number" id="new-pomodoro-estimate" placeholder="enter time">
-        <input type="submit" value="Yes" id="add-new-todo-button"> 
-        </div>
-            
+        <form action="/todos" method="POST">
+        <input type ="hidden"
+                name="authenticity_token"
+                value="<%= form_authenticity_token%>"/>
+        <input type="text" naem="title"/>
+        <input type="text" name="description" class="new-todo-description" placeholder="description"/>
+        <input type="number" name="duration" class="new-pomodoro-estimate" placeholder="enter time"/>
+        <input type="submit" value="addtodo" class="add-new-todo-button"> 
+            </form>
             
        
     </body>
